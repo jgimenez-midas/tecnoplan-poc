@@ -11,14 +11,14 @@ import {
 
 export function Header() {
   return (
-    <header className='bg-white border-b border-gray-200 px-6 py-4'>
+    <header className='bg-white border-b px-6 py-4' style={{ borderColor: 'var(--border)' }}>
       <div className='flex items-center justify-between'>
         <div>
-          <h1 className='text-2xl font-semibold text-gray-900'>Pedidos</h1>
+          <h1 className='text-2xl font-semibold text-foreground'>Pedidos</h1>
         </div>
 
         <div className='flex items-center gap-4'>
-          <span className='text-sm text-gray-600'>Simular como:</span>
+          <span className='text-sm text-muted-foreground'>Simular como:</span>
 
           <Select defaultValue='admin'>
             <SelectTrigger className='w-48'>
@@ -35,7 +35,22 @@ export function Header() {
             Descargar PDF
           </Button>
 
-          <Button className='bg-tecnoplant-green hover:bg-tecnoplant-green-dark' size='sm'>
+          <Button
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--tecnoplant-600)'
+              e.currentTarget.style.borderColor = 'var(--tecnoplant-600)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--tecnoplant-500)'
+              e.currentTarget.style.borderColor = 'var(--tecnoplant-500)'
+            }}
+            size='sm'
+            style={{
+              backgroundColor: 'var(--tecnoplant-500)',
+              borderColor: 'var(--tecnoplant-500)',
+              color: 'white',
+            }}
+          >
             Nuevo Pedido
           </Button>
         </div>

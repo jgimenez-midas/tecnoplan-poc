@@ -10,7 +10,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: #2e7d32; /* Tecnoplant green-500 */
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -22,7 +22,7 @@
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: #2e7d32; /* Tecnoplant green for focus rings */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -31,12 +31,30 @@
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: #2e7d32; /* Tecnoplant green */
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: #2e7d32;
+
+  /* Tecnoplant primary colors */
+  --tecnoplant-50: #f0f9f0;
+  --tecnoplant-100: #dcf2dc;
+  --tecnoplant-200: #bce5bc;
+  --tecnoplant-300: #8dd18d;
+  --tecnoplant-400: #5cb85c;
+  --tecnoplant-500: #2e7d32;
+  --tecnoplant-600: #1b5e20;
+  --tecnoplant-700: #1b4e1f;
+  --tecnoplant-800: #1a3e1a;
+  --tecnoplant-900: #173317;
+
+  /* Tecnoplant status colors */
+  --status-despachado: #6b7280; /* Gray */
+  --status-en-revision: #f59e0b; /* Yellow/Orange */
+  --status-pendiente: #3b82f6; /* Blue */
+  --status-procesado: #10b981; /* Green */
 }
 
 .dark {
@@ -46,8 +64,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: #5cb85c; /* Lighter green for dark mode */
+  --primary-foreground: oklch(0.145 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -58,7 +76,7 @@
   --destructive-foreground: oklch(0.637 0.237 25.331);
   --border: oklch(0.269 0 0);
   --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
+  --ring: #5cb85c; /* Tecnoplant green for dark mode */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -66,12 +84,18 @@
   --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: #5cb85c; /* Tecnoplant green for dark mode */
+  --sidebar-primary-foreground: oklch(0.145 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar-ring: #5cb85c;
+
+  /* Status colors for dark mode */
+  --status-despachado: #9ca3af; /* Lighter gray */
+  --status-en-revision: #fbbf24; /* Lighter yellow/orange */
+  --status-pendiente: #60a5fa; /* Lighter blue */
+  --status-procesado: #34d399; /* Lighter green */
 }
 
 @theme inline {
@@ -111,6 +135,12 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Tecnoplant status colors */
+  --color-status-despachado: var(--status-despachado);
+  --color-status-en-revision: var(--status-en-revision);
+  --color-status-pendiente: var(--status-pendiente);
+  --color-status-procesado: var(--status-procesado);
 }
 
 @layer base {

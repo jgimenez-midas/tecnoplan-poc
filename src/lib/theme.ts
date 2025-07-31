@@ -24,3 +24,34 @@ export const tecnoplantTheme = {
 } as const
 
 export type TecnoplantTheme = typeof tecnoplantTheme
+
+// Status type for type safety
+export type OrderStatus = keyof typeof tecnoplantTheme.colors.status
+
+// Utility function to get status color
+export const getStatusColor = (status: OrderStatus): string => {
+  return tecnoplantTheme.colors.status[status]
+}
+
+// Utility function to get status color class
+export const getStatusColorClass = (
+  status: OrderStatus,
+  type: 'bg' | 'text' | 'border' = 'bg',
+): string => {
+  return `${type}-status-${status.replace('-', '-')}`
+}
+
+// Utility function to get primary color
+export const getPrimaryColor = (
+  shade: keyof typeof tecnoplantTheme.colors.primary = 500,
+): string => {
+  return tecnoplantTheme.colors.primary[shade]
+}
+
+// Utility function to get primary color class
+export const getPrimaryColorClass = (
+  shade: keyof typeof tecnoplantTheme.colors.primary = 500,
+  type: 'bg' | 'text' | 'border' = 'bg',
+): string => {
+  return `${type}-tecnoplant-${String(shade)}`
+}

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 'use client'
 
 import { useState } from 'react'
@@ -72,11 +73,16 @@ export function Sidebar() {
   }
 
   return (
-    <div className='w-64 bg-tecnoplant-green text-white flex flex-col'>
-      <div className='p-4 border-b border-tecnoplant-green-light'>
+    <div
+      className='w-64 text-white flex flex-col'
+      style={{ backgroundColor: 'var(--tecnoplant-500)' }}
+    >
+      <div className='p-4 border-b' style={{ borderColor: 'var(--tecnoplant-400)' }}>
         <div className='flex items-center gap-2'>
           <div className='w-6 h-6 bg-white rounded-full flex items-center justify-center'>
-            <span className='text-tecnoplant-green text-sm font-bold'>T</span>
+            <span className='text-sm font-bold' style={{ color: 'var(--tecnoplant-500)' }}>
+              T
+            </span>
           </div>
           <span className='font-semibold'>Tecnoplant</span>
         </div>
@@ -84,10 +90,24 @@ export function Sidebar() {
 
       <nav className='flex-1 overflow-y-auto'>
         {menuItems.map((section) => (
-          <div className='border-b border-tecnoplant-green-light' key={section.id}>
+          <div
+            className='border-b'
+            key={section.id}
+            style={{ borderColor: 'var(--tecnoplant-400)' }}
+          >
             <button
-              className='w-full px-4 py-3 text-left text-xs font-semibold text-gray-300 hover:bg-tecnoplant-green-light flex items-center justify-between'
+              className='w-full px-4 py-3 text-left text-xs font-semibold text-gray-300 flex items-center justify-between'
               onClick={() => toggleSection(section.id)}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--tecnoplant-400)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent'
+              }}
+              style={{
+                backgroundColor: 'transparent',
+                cursor: 'pointer',
+              }}
             >
               {section.label}
               {expandedSections.includes(section.id) ? (
@@ -97,16 +117,29 @@ export function Sidebar() {
               )}
             </button>
             {expandedSections.includes(section.id) && section.children ? (
-              <div className='bg-tecnoplant-green-dark'>
+              <div style={{ backgroundColor: 'var(--tecnoplant-600)' }}>
                 {section.children.map((item) => (
-                  // eslint-disable-next-line jsx-a11y/anchor-is-valid
                   <a
                     className={cn(
-                      'block px-6 py-2 text-sm hover:bg-tecnoplant-green-light flex items-center gap-2',
-                      item.active && 'bg-tecnoplant-green-light text-white font-medium',
+                      'block px-6 py-2 text-sm flex items-center gap-2',
+                      item.active && 'text-white font-medium',
                     )}
                     href='#'
                     key={item.id}
+                    onMouseEnter={(e) => {
+                      if (!item.active) {
+                        e.currentTarget.style.backgroundColor = 'var(--tecnoplant-400)'
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!item.active) {
+                        e.currentTarget.style.backgroundColor = 'transparent'
+                      }
+                    }}
+                    style={{
+                      backgroundColor: item.active ? 'var(--tecnoplant-400)' : 'transparent',
+                      color: item.active ? 'white' : '#d1d5db', // text-gray-300
+                    }}
                   >
                     <span className='text-base'>{item.icon}</span>
                     {item.label}
@@ -118,8 +151,16 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <div className='p-4 border-t border-tecnoplant-green-light'>
-        <button className='text-sm text-gray-300 hover:text-white flex items-center gap-2'>
+      <div className='p-4 border-t' style={{ borderColor: 'var(--tecnoplant-400)' }}>
+        <button
+          className='text-sm text-gray-300 flex items-center gap-2'
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = 'white'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = '#d1d5db' // text-gray-300
+          }}
+        >
           <ChevronDown className='w-4 h-4' />
           Colapsar
         </button>
