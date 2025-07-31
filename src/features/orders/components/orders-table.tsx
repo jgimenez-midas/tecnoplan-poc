@@ -30,7 +30,12 @@ export function OrdersTable({ orders }: OrdersTableProps) {
 
   const getActionButtons = (order: Order) => {
     const baseButtons = [
-      <Button className='text-blue-600 p-0 h-auto' key='ver' size='sm' variant='link'>
+      <Button
+        className='bg-yellow-500 hover:bg-yellow-600 text-white'
+        key='ver'
+        size='sm'
+        variant='default'
+      >
         Ver/Editar
       </Button>,
     ]
@@ -76,41 +81,41 @@ export function OrdersTable({ orders }: OrdersTableProps) {
 
   return (
     <div className='bg-white rounded-lg shadow-sm border overflow-hidden'>
-      <div className='overflow-x-auto'>
-        <table className='w-full'>
+      <div className='overflow-x-auto min-w-0'>
+        <table className='w-full min-w-full'>
           <thead className='bg-gray-50 border-b'>
             <tr>
-              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[120px]'>
                 Nro Pedido
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[200px]'>
                 Razón Social
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[120px]'>
                 Tipo Cliente
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[150px]'>
                 Vendedor
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[120px]'>
                 Nro en Tango
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[100px]'>
                 Fecha
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[100px]'>
                 Monto
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[80px]'>
                 Plazo
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[200px]'>
                 Comentarios
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[100px]'>
                 Estado
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[200px]'>
                 Acciones
               </th>
             </tr>
@@ -143,7 +148,7 @@ export function OrdersTable({ orders }: OrdersTableProps) {
                 </td>
                 <td className='px-4 py-3 whitespace-nowrap'>{getStatusBadge(order.estado)}</td>
                 <td className='px-4 py-3 whitespace-nowrap text-sm'>
-                  <div className='flex gap-2 flex-wrap'>{getActionButtons(order)}</div>
+                  <div className='flex gap-2 flex-nowrap'>{getActionButtons(order)}</div>
                 </td>
               </tr>
             ))}
